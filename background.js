@@ -1,24 +1,34 @@
 module.exports = {
   create,
-  update
+  update,
+  getBank
 }
 
 let river
 let leftBank
 let rightBank
+let banks
 
 function create (game) {
   preload(game)
+
   river = game.add.tileSprite(0, 0, 1500, 950, 'water')
   river.scale.setTo(3, 3)
+
+  banks = game.add.group()
+  banks.enableBody = true;
+
   leftBank = game.add.tileSprite(0, 0, 127, 950, 'bank')
   leftBank.scale.setTo(4, 4)
   leftBank.tilePosition.y = 80
+  banks.add(leftBank)
+  leftBank.body.immovable = true
 
   rightBank = game.add.tileSprite(1500, 0, 127, 950, 'bank')
   rightBank.scale.setTo(4, 4)
   rightBank.scale.x = -4 //flips image
-
+  banks.add(rightBank)
+  rightBank.body.immovable = true
 
 }
 
@@ -30,4 +40,8 @@ function preload (game) {
   game.load.image('water', 'assets/water.jpg')
   game.load.image('bank', 'assets/ground.png')
   game.load.start()
+}
+
+function getBank() {
+  return banks
 }
