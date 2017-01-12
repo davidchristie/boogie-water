@@ -8,7 +8,7 @@ const run = require('./update')
 const game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', {create: create, update: update});
 
 function create() {
-
+  game.physics.startSystem(Phaser.Physics.ARCADE)
   start(game)
 }
 
