@@ -5,13 +5,10 @@ window.Phaser = require('phaser/build/custom/phaser-split')
 const start = require('./create')
 const run = require('./update')
 
-const game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
-
-function preload() {
-
-}
+const game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', {create: create, update: update});
 
 function create() {
+
   start(game)
 }
 
