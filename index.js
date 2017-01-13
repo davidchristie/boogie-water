@@ -5,11 +5,12 @@ window.Phaser = require('phaser/build/custom/phaser-split')
 const start = require('./create')
 const run = require('./update')
 
-
-const game = new Phaser.Game(1500, 950, Phaser.AUTO, 'game', {preload:preload, create: create, update: update});
+const game = new Phaser.Game(1500, 950, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
 function preload() {
   game.load.spritesheet('kayaker', 'assets/kayaker.png', 64, 64)
+  game.load.image('water', 'assets/water.jpg')
+  game.load.image('bank', 'assets/ground.png')
 }
 
 function create() {
