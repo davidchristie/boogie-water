@@ -10,10 +10,10 @@ let flip
 
 function create (game) {
   //add player
-  player = game.add.sprite(450, 50, 'kayaker')
+  player = game.add.sprite(750, 50, 'kayaker')
 
   //add gravity
-  //game.physics.arcade.gravity.y = 100
+  // game.physics.arcade.gravity.y = 100
   game.physics.enable(player)
 
   player.enableBody = true
@@ -43,5 +43,5 @@ function move() {
 }
 
 function update (game) {
-move()
+// move()
 }
