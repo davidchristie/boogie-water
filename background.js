@@ -10,8 +10,6 @@ let rightBank
 let banks
 
 function create (game) {
-  preload(game)
-
   river = game.add.tileSprite(0, 0, 1500, 950, 'water')
   river.scale.setTo(3, 3)
 
@@ -34,12 +32,6 @@ function create (game) {
 
 function update (game) {
   river.tilePosition.y -= 0.3 //makes river flow
-}
-
-function preload (game) {
-  game.load.image('water', 'assets/water.jpg')
-  game.load.image('bank', 'assets/ground.png')
-  game.load.start()
 }
 
 function getBank() {
