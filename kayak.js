@@ -8,14 +8,17 @@ let cursors
 let flip
 
 function create (game) {
-  // game.load.spritesheet('kayaker', 'assets/kayaker.png', 64, 64)
-  // game.load.start()
-
 
   //add player
+  getKayaker()
+
   player = game.add.sprite(450, 50, 'kayaker')
 
+  //add gravity
+  //game.physics.arcade.gravity.y = 100
+  game.physics.enable(player)
 
+  player.enableBody = true
   player.scale.setTo(2, 2)
   player.anchor.set(0.5)
   player.body.setSize(60, 50)
@@ -24,12 +27,9 @@ function create (game) {
   //add camera
   game.camera.follow(player, Phaser.Camera.FOLLOW_LOCKON, 0.1)
 
-  //add gravity
-  game.physics.startSystem(Phaser.Physics.ARCADE);
-  game.physics.arcade.gravity.y = 100
-  game.physics.enable(player, Phaser.Physics.ARCADE)
 
-  //  add keyboard inputs
+
+  //add keyboard inputs
   cursors = game.input.keyboard.createCursorKeys()
   flip = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
 
