@@ -31,9 +31,9 @@ function create (game) {
 }
 
 function update (game) {
-  river.tilePosition.y -= 0.8 //makes river flow
-  rightBank.tilePosition.y -= 0.3
-  leftBank.tilePosition.y -= 0.3
+  river.tilePosition.y -= 0.3 //makes river flow
+  rightBank.tilePosition.y -= 0.8
+  leftBank.tilePosition.y -= 0.8
 }
 
 function getBank() {
