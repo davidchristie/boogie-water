@@ -19,7 +19,7 @@ function create (game) {
   player.enableBody = true
   player.scale.setTo(3, 2)
   player.anchor.set(0.5)
-  player.body.setSize(60, 50)
+  player.body.setSize(40, 50)
 
 
   //add camera
@@ -66,6 +66,10 @@ function move() {
         player.body.velocity.y += 200
         player.animations.play('idle')
     }
+
+    // if (player.x < 200 || player.x > 1300) {
+    //     player.body.velocity.x = 0
+    // }
 
 }
 
