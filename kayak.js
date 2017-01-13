@@ -38,6 +38,10 @@ function getKayaker() {
   return player
 }
 
+function move() {
+  
+}
+
 function update (game) {
 move()
 }
