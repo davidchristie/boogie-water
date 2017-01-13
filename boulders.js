@@ -15,7 +15,7 @@ function create (game) {
   game.physics.arcade.enable(boulder)
   boulder.body.velocity.y = -190
   boulder.body.immovable = true
-  boulder.body.setSize(50, 20)
+  boulder.body.setSize(40, 20)
 
   boulder2 = game.add.sprite(800, 1200, 'boulder2')
   boulder2.scale.setTo(3, 3)
@@ -24,7 +24,7 @@ function create (game) {
   game.physics.arcade.enable(boulder2)
   boulder2.body.velocity.y = -190
   boulder2.body.immovable = true
-  boulder2.body.setSize(50, 20)
+  boulder2.body.setSize(40, 20)
 }
 
 function update (game) {

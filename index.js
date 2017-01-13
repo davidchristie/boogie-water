@@ -14,6 +14,8 @@ function preload() {
   game.load.image('bank', 'assets/ground.png')
   game.load.spritesheet('boulder1', 'assets/rock1.png', 64, 64)
   game.load.spritesheet('boulder2', 'assets/rock2.png', 64, 64)
+  game.load.audio('river', 'assets/river-1.mp3')
+
 }
 
 function create() {

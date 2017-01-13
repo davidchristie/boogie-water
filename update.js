@@ -4,6 +4,7 @@ const boulders = require ('./boulders')
 
 let hit
 let stateText
+let scoreText
 
 module.exports = (game) => {
   background.update(game)
@@ -18,7 +19,9 @@ module.exports = (game) => {
   if(game.physics.arcade.collide(kayak.getKayaker(), boulders.getOtherBoulder())){
     checkHit(game)
   }
-
+  if(scoreText) {scoreText.destroy()}
+  scoreText = game.add.text(50, 50,'', { font: '84px Arial', fill: '#fff' })
+  scoreText.text = kayak.getScore()
 }
 
 function checkHit(game) {

@@ -3,17 +3,19 @@ module.exports = {
   update,
   getKayaker,
   kill,
-  reset
+  reset,
+  getScore
 }
 
 let player
 let cursors
 let flip
 let dead
+let score = 0
 
 function create (game) {
   //add player
-  player = game.add.sprite(750, 50, 'kayaker')
+  player = game.add.sprite(750, 100, 'kayaker')
 
   //add gravity
   // game.physics.arcade.gravity.y = 100
@@ -22,7 +24,7 @@ function create (game) {
   player.enableBody = true
   player.scale.setTo(3, 2)
   player.anchor.set(0.5)
-  player.body.setSize(40, 50)
+  player.body.setSize(40, 40)
 
 
   //add camera
@@ -60,7 +62,7 @@ function move() {
         player.animations.play('walk')
     }
 
-    if (cursors.up.isDown)
+    else if (cursors.up.isDown)
     {
         player.body.velocity.y -= 100
         player.animations.play('idle')
@@ -83,6 +85,7 @@ function update (game) {
   }
   else{
     move()
+    score ++
   }
 }
 
@@ -92,8 +95,13 @@ function kill(){
 }
 
 function reset() {
+  score = 0
   dead = false
-  player.y = 50
+  player.y = 100
   player.x = 750
   player.animations.play('idle')
+}
+
+function getScore() {
+  return score
 }
