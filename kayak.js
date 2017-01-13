@@ -1,6 +1,7 @@
 module.exports = {
   create,
-  update
+  update,
+  getKayaker
 }
 
 let player
@@ -8,10 +9,7 @@ let cursors
 let flip
 
 function create (game) {
-
   //add player
-  getKayaker()
-
   player = game.add.sprite(450, 50, 'kayaker')
 
   //add gravity
@@ -27,8 +25,6 @@ function create (game) {
   //add camera
   game.camera.follow(player, Phaser.Camera.FOLLOW_LOCKON, 0.1)
 
-
-
   //add keyboard inputs
   cursors = game.input.keyboard.createCursorKeys()
   flip = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
@@ -38,6 +34,10 @@ function create (game) {
   player.animations.add('walk', [16, 17, 18, 19, 20], 10, true)
 }
 
+function getKayaker() {
+  return player
+}
+
 function update (game) {
-//
+move()
 }
