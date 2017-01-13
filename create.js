@@ -4,6 +4,6 @@ const boulders = require ('./boulders')
 
 module.exports = (game) => {
   background.create(game)
-  //boulders.create(game)
+  boulders.create(game)
   kayak.create(game)
 }

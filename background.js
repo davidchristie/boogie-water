@@ -21,12 +21,14 @@ function create (game) {
   leftBank.tilePosition.y = 80
   banks.add(leftBank)
   leftBank.body.immovable = true
+  leftBank.body.setSize(90, 950)
 
   rightBank = game.add.tileSprite(1500, 0, 127, 950, 'bank')
   rightBank.scale.setTo(4, 4)
   rightBank.scale.x = -4 //flips image
   banks.add(rightBank)
   rightBank.body.immovable = true
+  rightBank.body.setSize(90, 950)
 
 }
 

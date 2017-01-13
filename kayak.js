@@ -1,12 +1,15 @@
 module.exports = {
   create,
   update,
-  getKayaker
+  getKayaker,
+  kill,
+  reset
 }
 
 let player
 let cursors
 let flip
+let dead
 
 function create (game) {
   //add player
@@ -32,6 +35,7 @@ function create (game) {
   //sets player animations
   player.animations.add('idle', [0, 1, 2, 3], 5, true)
   player.animations.add('walk', [16, 17, 18, 19, 20], 10, true)
+  player.animations.play('idle')
 }
 
 function getKayaker() {
@@ -58,7 +62,7 @@ function move() {
 
     if (cursors.up.isDown)
     {
-        player.body.velocity.y -= 40
+        player.body.velocity.y -= 100
         player.animations.play('idle')
     }
     else if (cursors.down.isDown)
@@ -74,5 +78,22 @@ function move() {
 }
 
 function update (game) {
-  move()
+  if(dead) {
+    player.body.velocity.y = -190
+  }
+  else{
+    move()
+  }
+}
+
+function kill(){
+  dead = true
+  player.animations.stop()
+}
+
+function reset() {
+  dead = false
+  player.y = 50
+  player.x = 750
+  player.animations.play('idle')
 }
