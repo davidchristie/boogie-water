@@ -17,7 +17,7 @@ function create (game) {
   game.physics.enable(player)
 
   player.enableBody = true
-  player.scale.setTo(2, 2)
+  player.scale.setTo(3, 2)
   player.anchor.set(0.5)
   player.body.setSize(60, 50)
 
@@ -39,9 +39,36 @@ function getKayaker() {
 }
 
 function move() {
-  
+
+  player.body.velocity.x = 0
+  player.body.velocity.y = 0
+
+  if (cursors.left.isDown)
+    {
+        player.body.velocity.x -= 200
+        player.scale.x = -Math.abs(player.scale.x)
+        player.animations.play('walk')
+    }
+    else if (cursors.right.isDown)
+    {
+        player.body.velocity.x += 200
+        player.scale.x = Math.abs(player.scale.x)
+        player.animations.play('walk')
+    }
+
+    if (cursors.up.isDown)
+    {
+        player.body.velocity.y -= 40
+        player.animations.play('idle')
+    }
+    else if (cursors.down.isDown)
+    {
+        player.body.velocity.y += 200
+        player.animations.play('idle')
+    }
+
 }
 
 function update (game) {
-// move()
+  move()
 }
