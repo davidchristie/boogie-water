@@ -30,6 +30,7 @@ function checkHit(game) {
     stateText.text="GAME OVER!\n Click to restart"
     stateText.visible = true
   }
+  game.add.audio('scream').play()
   kayak.kill()
   //the "click to restart" handler
   game.input.onTap.addOnce(restart, this)
